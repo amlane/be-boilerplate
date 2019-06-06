@@ -2,11 +2,16 @@
 
 ### <p align="center">< -------- Already completed ----------></p>
 
+####Create a directory for your server to live
+
 - mkdir < server-directory-name >
-- `git init`
+- `git init`              
 - `npx gitignore node`    //creates git.ignore for node
 - `npm init -y`           //creates package.json
-- `npm i express`         //add your dependencies
+
+####Add your dependencies
+
+- `npm i express`         
 - `npm i nodemon -D`	
 - `npm i helmet` 		
 - `npm i knex`		
