@@ -2,7 +2,7 @@
 
 ### <p align="center">< -------- Already completed ----------></p>
 
-- mkdir <server-directory-name>
+- mkdir < server-directory-name >
 - `git init`
 - `npx gitignore node`    //creates git.ignore for node
 - `npm init -y`           //creates package.json
