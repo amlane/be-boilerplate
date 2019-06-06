@@ -1,6 +1,6 @@
 ## Steps to build a server
 
-### < -------- Already completed ---------->
+### <p align="center">< -------- Already completed ----------></p>
 
 - mkdir <server-directory-name>
 - git init
