@@ -25,7 +25,7 @@ Inside these files include most common CRUD endpoints and helper functions
 
 
 
-### < -------- Adding Migrations & Seeding (on knex-branch) ---------->
+### <p align="center">< -------- Adding Migrations & Seeding (on knex-branch) ----------></p>
 
 - npx knex init    //creates an abstracted knex file
 - replace the development object with the knexConfig object
@@ -77,7 +77,7 @@ data > migration, seeds, db3 file
 
 
 
-### < -------- after forking and cloning this repo ---------->
+### <p align="center">< -------- after forking and cloning this repo ----------></p>
 
 - run command `npm install` to get your dependencies listed above.
 
