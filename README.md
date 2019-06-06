@@ -46,7 +46,7 @@
 
 Table schema is already created for a basic user with id and name
 
-add migrations and seeds direction to knexfile.js
+add migrations and seeds directories to knexfile.js
 
 ``` 
 module.exports = {
