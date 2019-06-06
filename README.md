@@ -1,6 +1,6 @@
-Steps to build a server
+## Steps to build a server
 
-< -------- Already completed ---------->
+### < -------- Already completed ---------->
 
 - mkdir <server-directory-name>
 - git init
@@ -25,7 +25,7 @@ Inside these files include most common CRUD endpoints and helper functions
 
 
 
-< -------- Adding Migrations & Seeding (on knex-branch) ---------->
+### < -------- Adding Migrations & Seeding (on knex-branch) ---------->
 
 - npx knex init    //creates an abstracted knex file
 - replace the development object with the knexConfig object
@@ -33,19 +33,31 @@ Inside these files include most common CRUD endpoints and helper functions
 - make sure db is acessing the development object
 - update an existing filename to a newfilename.db3
 
-Create a table within a migration folder:
+## Create a table within a migration folder:
 - npx knex migrate:make table_name
 
 Table schema is already created for a basic user with id and name
 
 add migrations and seeds direction to knexfile.js
 
-``` migrations: {
+``` 
+module.exports = {
+
+  development: {
+    client: 'sqlite3',
+    connection: {
+        filename: './data/dummy.db3'
+    },
+    useNullAsDefault: true,
+    migrations: {
       directory:   './data/migrations',
     }, 
     seeds: {
       directory: './data/seeds',
-},```
+    },
+  },
+};
+```
 
 
 
@@ -54,7 +66,7 @@ add migrations and seeds direction to knexfile.js
 
 - if refactoring from an existing server without migrations/seeding, update helper functions to inlude the correct table name
 
-Create data (seed):
+## Create data (seed):
 
 - npx knex seed:make 001-seedName    (makes a new seed)
 - npx knex seed:run		     (runs/resets seed)
