@@ -1,15 +1,15 @@
-## Steps to build a server
+# Steps to build a server
 
-### <p align="center">< -------- Already completed ----------></p>
+## <p align="center">< -------- Already completed ----------></p>
 
-####Create a directory for your server to live
+### Create a directory for your server to live
 
 - mkdir < server-directory-name >
 - `git init`              
 - `npx gitignore node`    //creates git.ignore for node
 - `npm init -y`           //creates package.json
 
-####Add your dependencies
+### Add your dependencies
 
 - `npm i express`         
 - `npm i nodemon -D`	
@@ -33,7 +33,7 @@
 
 
 
-### <p align="center">< -------- Adding Migrations & Seeding (on knex-branch) ----------></p>
+## <p align="center">< -------- Adding Migrations & Seeding (on knex-branch) ----------></p>
 
 - `npx knex init`    //creates an abstracted knex file
 - replace the development object with the knexConfig object
@@ -85,7 +85,7 @@ data > migration, seeds, db3 file
 
 
 
-### <p align="center">< -------- after forking and cloning this repo ----------></p>
+## <p align="center">< -------- after forking and cloning this repo ----------></p>
 
 - run command `npm install` to get your dependencies listed above.
 
