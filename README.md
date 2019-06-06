@@ -77,12 +77,7 @@ data > migration, seeds, db3 file
 
 
 
-
-
-
-
-
-< -------- after forking and cloning this repo ---------->
+### < -------- after forking and cloning this repo ---------->
 
 - run command `npm install` to get your dependencies listed above.
 
