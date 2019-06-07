@@ -1,4 +1,4 @@
-# <p align="center">Steps to build a server with database</p>
+# <p align="center">Step-By-Step Guide to Build a Node.js with an SQLite Database</p>
 
 ## <p align="center">< -------- Creating A Git Repo & Adding Dependencies ----------></p>
 
@@ -108,9 +108,7 @@ exports.seed = function(knex, Promise) {
 
 ## <p align="center">< -------- after forking and cloning this repo ----------></p>
 
-
-
-
 - run command `npm install` to get your dependencies listed above.
+- If you fork and clone this repo you do not need to follow README steps, they are already completed. 
 
 
