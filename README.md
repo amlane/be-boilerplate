@@ -54,7 +54,7 @@ module.exports = {
 
 - `npx knex migrate:make table_name`
 
-- Update table_name file within migrations folder to:
+- Example migrations > table_name.js file: 
 
 ```
 exports.up = function(knex, Promise) {
@@ -76,7 +76,7 @@ exports.down = function(knex, Promise) {
 
 - `npx knex seed:make 001-seedName`    (makes a new seed)
 
-- Example 001-exampleSeed.js file:
+- Example seeds > 001-exampleSeed.js file:
 
 ```
 exports.seed = function(knex, Promise) {
