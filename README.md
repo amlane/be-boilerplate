@@ -1,4 +1,4 @@
-# Steps to build a server with database
+# <p align="center">Steps to build a server with database</p>
 
 ## <p align="center">< -------- Creating A Git Repo & Adding Dependencies ----------></p>
 
@@ -29,7 +29,7 @@
 
 - `npx knex init`    //creates an abstracted knexfile.js
 
-Update knexfile.js to:
+- Update knexfile.js to:
 
 ```
 module.exports = {
@@ -100,7 +100,7 @@ exports.seed = function(knex, Promise) {
 ## Creating Server, Routes and Helper Functions
 
 - Create index.js file that includes your server and a Route to '/api'
-- Create a directory named 'route'.
+- Create a directory named 'route'
 - Within the 'route' directory create 2 files named: `model.js` and `router.js`
 - Please review the `model.js` and `router.js` files that include the basic helper and CRUD functions.
 
