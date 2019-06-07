@@ -1,21 +1,19 @@
-# Steps to build a server
+# <p align="center">How to Build a Node.js Server Using an SQLite Database</p>
 
-## <p align="center">< -------- Already completed ----------></p>
+## Creating A Git Repo & Adding Dependencies
 
 ### Create a directory for your server to live
 
-- mkdir < server-directory-name >
+- `mkdir < server-directory-name >`
 - `git init`              
 - `npx gitignore node`    //creates git.ignore for node
 - `npm init -y`           //creates package.json
 
 ### Add your dependencies
 
-- `npm i express`         
+- `npm i express helmet knex sqlite3`         
 - `npm i nodemon -D`	
-- `npm i helmet` 		
-- `npm i knex`		
-- `npm i sqlite3`	
+
 
 - Update package.json scripts to include server (and start) script(s):
 
@@ -26,35 +24,20 @@
 }
 ```
 
-- Create index.js file -- this file includes server and setup for dummyRoute
-- Create folders: data, dummyRoute
-- In dummyRoute, create files: dummy-router.js, dummy-model.js
-- Inside these files include most common CRUD endpoints and helper functions
 
+## Adding Migrations & Seeding
 
+- `npx knex init`    //creates an abstracted knexfile.js
 
-## <p align="center">< -------- Adding Migrations & Seeding (on knex-branch) ----------></p>
+- Update knexfile.js to:
 
-- `npx knex init`    //creates an abstracted knex file
-- replace the development object with the knexConfig object
-- change knexConfig to import the new knexfile.js
-- make sure db is acessing the development object
-- update an existing filename to a newfilename.db3
-
-## Create a table within a migration folder:
-- `npx knex migrate:make table_name`
-
-Table schema is already created for a basic user with id and name
-
-add migrations and seeds directories to knexfile.js
-
-``` 
+```
 module.exports = {
 
   development: {
     client: 'sqlite3',
     connection: {
-        filename: './data/dummy.db3'
+        filename: './data/database.db3' //database can be whatever you name it
     },
     useNullAsDefault: true,
     migrations: {
@@ -67,26 +50,65 @@ module.exports = {
 };
 ```
 
+## Create a table within a migration folder:
 
+- `npx knex migrate:make table_name`
+
+- Update table_name file within migrations folder to:
+
+```
+exports.up = function(knex, Promise) {
+    return knex.schema.createTable('table_name', function(tbl){
+        // insert table schema constraints
+  })
+};
+
+exports.down = function(knex, Promise) {
+    return knex.schema.dropTableIfExists('table_name');
+};
+
+```
 
 - `npx knex migrate:latest`     (creates .db3 file)
 - `npx knex migrate:rollback`   (deletes .db3 file)
 
-- If refactoring from an existing server without migrations/seeding, update helper functions to inlude the correct table name
-
 ## Create data (seed):
 
 - `npx knex seed:make 001-seedName`    (makes a new seed)
-- `npx knex seed:run`		     (runs/resets seed)
+
+- Example 001-exampleSeed.js file:
+
+```
+exports.seed = function(knex, Promise) {
+  // Deletes ALL existing entries
+  return knex('table_name').truncate()
+    .then(function () {
+      // Inserts seed entries
+      return knex('table_name').insert([
+        { name: 'Amanda' },
+        { name: 'Herman' },
+        { name: 'Boo' }
+      ]);
+    });
+};
+```
+
+- `npx knex seed:run`		               (runs/resets seed)
 
 
-File structure should be: 
-data > migration, seeds, db3 file
+
+## Creating Server, Routes and Helper Functions
+
+- Create index.js file that includes your server and a Route to '/api'
+- Create a directory named 'route'
+- Within the 'route' directory create 2 files named: `model.js` and `router.js`
+- Please review the `model.js` and `router.js` files that include the basic helper and CRUD functions.
 
 
 
 ## <p align="center">< -------- after forking and cloning this repo ----------></p>
 
 - run command `npm install` to get your dependencies listed above.
+- If you fork and clone this repo you do not need to follow README steps, they are already completed. 
 
-There is already a dummyRoute included in this file for reference
+
