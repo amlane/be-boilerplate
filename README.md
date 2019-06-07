@@ -1,6 +1,6 @@
 # <p align="center">How to Build a Node.js Server Using an SQLite Database</p>
 
-##Creating A Git Repo & Adding Dependencies
+## Creating A Git Repo & Adding Dependencies
 
 ### Create a directory for your server to live
 
@@ -25,7 +25,7 @@
 ```
 
 
-##Adding Migrations & Seeding
+## Adding Migrations & Seeding
 
 - `npx knex init`    //creates an abstracted knexfile.js
 
