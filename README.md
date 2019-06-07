@@ -4,7 +4,7 @@
 
 ### Create a directory for your server to live
 
-- mkdir < server-directory-name >
+- `mkdir < server-directory-name >`
 - `git init`              
 - `npx gitignore node`    //creates git.ignore for node
 - `npm init -y`           //creates package.json
