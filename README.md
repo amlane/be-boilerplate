@@ -11,7 +11,7 @@
 
 ### Add your dependencies
 
-- `npm i express helmet knex sqlite3`         
+- `npm i express helmet cors knex sqlite3 bcryptjs jsonwebtoken`         
 - `npm i nodemon -D`	
 
 
@@ -19,7 +19,7 @@
 
 ```
 "scripts": {
-	"server": "nodemon index.js",
+	"server": "nodemon",  //defaults to index.js
 	"start": "node index.js" (optional, for production)
 }
 ```
@@ -33,16 +33,20 @@
 
 ```
 module.exports = {
-
   development: {
     client: 'sqlite3',
-    connection: {
-        filename: './data/database.db3' //database can be whatever you name it
-    },
     useNullAsDefault: true,
+    connection: {
+      filename: './data/auth.db3',
+    },
+    pool: {
+      afterCreate: (conn, done) => {
+        conn.run('PRAGMA foreign_keys = ON', done);
+      },
+    },
     migrations: {
-      directory:   './data/migrations',
-    }, 
+      directory: './data/migrations',
+    },
     seeds: {
       directory: './data/seeds',
     },
@@ -54,25 +58,34 @@ module.exports = {
 
 - `npx knex migrate:make table_name`
 
-- Example migrations > table_name.js file: 
+- Example schema for a user table: 
 
 ```
-exports.up = function(knex, Promise) {
-    return knex.schema.createTable('table_name', function(tbl){
-        // insert table schema constraints
-  })
-};
+exports.up = function(knex) {
+    return knex.schema.createTable('users', users => {
+      users.increments();
+  
+      users
+        .string('username', 128)
+        .notNullable()
+        .unique();
 
-exports.down = function(knex, Promise) {
-    return knex.schema.dropTableIfExists('table_name');
-};
+      users
+        .string('password', 128)
+        .notNullable();
+    });
+  };
+  
+  exports.down = function(knex, Promise) {
+    return knex.schema.dropTableIfExists('users');
+  };
 
 ```
 
 - `npx knex migrate:latest`     (creates .db3 file)
 - `npx knex migrate:rollback`   (deletes .db3 file)
 
-## Create data (seed):
+## Seeding (optional):
 
 - `npx knex seed:make 001-seedName`    (makes a new seed)
 
@@ -85,9 +98,9 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('table_name').insert([
-        { name: 'Amanda' },
-        { name: 'Herman' },
-        { name: 'Boo' }
+        { username: 'Amanda', password: '123' },
+        { username: 'Herman', password: 'password'  },
+        { username: 'Boo', password: 'hello'  }
       ]);
     });
 };
@@ -104,6 +117,8 @@ exports.seed = function(knex, Promise) {
 - Within the 'route' directory create 2 files named: `model.js` and `router.js`
 - Please review the `model.js` and `router.js` files that include the basic helper and CRUD functions.
 
+
+## For a server with login/register new user, visit: https://github.com/amlane/webauth-iii-guided
 
 
 ## <p align="center">< -------- after forking and cloning this repo ----------></p>
