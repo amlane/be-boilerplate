@@ -118,7 +118,7 @@ exports.seed = function(knex, Promise) {
 - Please review the `model.js` and `router.js` files that include the basic helper and CRUD functions.
 
 
-## For a server with login/register new user, visit: https://github.com/amlane/webauth-iii-guided
+### For a server with login/register new user, visit: https://github.com/amlane/webauth-iii-guided
 
 
 ## <p align="center">< -------- after forking and cloning this repo ----------></p>
