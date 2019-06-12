@@ -11,9 +11,12 @@
 
 ### Add your dependencies
 
-- `npm i express helmet cors knex sqlite3 bcryptjs jsonwebtoken`         
+- `npm i express helmet cors knex sqlite3 bcryptjs* jsonwebtoken*`         
 - `npm i nodemon -D`	
 
+### `*` only if using database with login/register
+
+### For a server with login/register new user, visit: https://github.com/amlane/webauth-iii-guided 
 
 - Update package.json scripts to include server (and start) script(s):
 
@@ -116,10 +119,6 @@ exports.seed = function(knex, Promise) {
 - Create a directory named 'route'
 - Within the 'route' directory create 2 files named: `model.js` and `router.js`
 - Please review the `model.js` and `router.js` files that include the basic helper and CRUD functions.
-
-
-### For a server with login/register new user, visit: https://github.com/amlane/webauth-iii-guided
-
 
 ## <p align="center">< -------- after forking and cloning this repo ----------></p>
 
