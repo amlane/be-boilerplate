@@ -16,7 +16,7 @@
 
 `* only if using database with login/register`
 
-### For a server with login/register new user, visit: https://github.com/amlane/webauth-iii-guided 
+### For a server with login/register new user, visit <a href="https://github.com/amlane/webauth-iii-guided">this repo</a>.
 
 - Update package.json scripts to include server (and start) script(s):
 
