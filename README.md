@@ -14,7 +14,7 @@
 - `npm i express helmet cors knex sqlite3 bcryptjs* jsonwebtoken*`         
 - `npm i nodemon -D`	
 
-### `*` only if using database with login/register
+`*` only if using database with login/register
 
 ### For a server with login/register new user, visit: https://github.com/amlane/webauth-iii-guided 
 
