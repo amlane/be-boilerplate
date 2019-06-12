@@ -115,10 +115,15 @@ exports.seed = function(knex, Promise) {
 
 ## Creating Server, Routes and Helper Functions
 
-- Create index.js file that includes your server and a Route to '/api'
-- Create a directory named 'route'
-- Within the 'route' directory create 2 files named: `model.js` and `router.js`
-- Please review the `model.js` and `router.js` files that include the basic helper and CRUD functions.
+- In the data directory, create a file called "dbConfig.js" and include the following code: 
+```
+const knex = require('knex');
+
+const knexConfig = require('../knexfile.js');
+
+module.exports = knex(knexConfig.development);
+```
+- Review the code in this repository for more information. 
 
 ## <p align="center">< -------- after forking and cloning this repo ----------></p>
 
